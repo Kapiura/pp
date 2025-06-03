@@ -29,8 +29,7 @@ double oblicz_rate(double przyszla_wartosc, double stopa, double okres)
     return (przyszla_wartosc * stopa) / (std::pow(1 + stopa, okres) - 1);
 }
 
-int main() 
-{
+int main() {
     const auto domyslna_precyzja = std::cout.precision();
     std::cout << std::fixed;
 
@@ -41,17 +40,17 @@ int main()
 
     // Scenariusze: [nazwa, nominalna stopa zwrotu, stopa inflacji]
     struct Scenariusz 
-  {
+    {
         const char* nazwa;
         double nominalna;
         double inflacja;
     };
 
     Scenariusz scenariusze[] = 
-  {
-        {"Optymistyczny", 0.06 / 12, 0.025 / 12}, // 6% zysk, 5% inflacja
-        {"Umiarkowany",   0.04 / 12, 0.043 / 12}, // 4% zysk, 4% inflacja
-        {"Pesymistyczny", 0.06 / 12, 0.025 / 12}  // 2% zysk, 1% inflacja
+    {
+        {"Pesymistyczny", 0.03 / 12, 0.045 / 12}, // 3% zysk, 4.5% inflacja
+        {"Umiarkowany",   0.04 / 12, 0.043 / 12}, // 4% zysk, 4.3% inflacja
+        {"Optymistyczny", 0.06 / 12, 0.025 / 12}  // 6% zysk, 2.5% inflacja
     };
 
     for (const auto& s : scenariusze) 
